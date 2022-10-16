@@ -1,12 +1,19 @@
+"""     IMPORTAZIONI        """
 from telegram import *
 from telegram.ext import *
 from requests import *
 import random 
 
+
+"""     TOKEN       """
+#Token identificativo del mio bot "______" con tag "______"
 TOKEN = "5562164106:AAE2cjpILKLGVnR7HLtshnMk5o2GOZCAkTg"
 
+
+"""     VARIABILI       """
 randomChampImg = "Random Champ Image"
 randomChampSuggestion = "Random Champ Suggestions"
+searchAChampion = "Search a Champ"
 
 randomChampImgUrl = ""
 campioni = ["aatrox","ahri","akali","alistar","amumu","anivia","annie","aphelios",
@@ -37,11 +44,16 @@ def start(update, context):
 def messageHandler(update, context):
     if randomChampSuggestion in update.message.text:
         update.message.reply_text(random.choice(campioni))
+    if randomChampImgUrl in update.message.text:
+        update.message.reply_text("https://leagueoflegends.fandom.com/wiki/League_of_Legends_Wiki?file="+random.choice(campioni)+"Banner.png")
+    if searchAChampion in update.message.text:
+        update.message.reply_text("https://leagueoflegends.fandom.com/wiki/"+random.choice(campioni)+"/LoL")
 
 def menu(update, context):
-    #creo una lista chiamata buttons dove aggiungo dei keyboard buttons in cui scrivo solo il titolo
-    buttons = [[KeyboardButton("Random Champ Image"), KeyboardButton("Random Champ Suggestions")],[ KeyboardButton("Search a Champ"), KeyboardButton("Do nothing")]]
-    #definisco un messaggio da inviare quando digito il comando menu, non so bene a che serve chat_id ma lo metto 
+    #Lista di bottoni dove aggiungo dei keyboard buttons in cui scrivo solo il titolo
+    buttons = [[KeyboardButton("Random Champ Image"), KeyboardButton("Random Champ Suggestions")],
+                [ KeyboardButton("Search a Champ"), KeyboardButton("Do nothing")]]
+    #Messaggio da inviare quando digito il comando menu ""non so bene a che serve chat_id ma lo metto""
     context.bot.send_message(chat_id = update.effective_chat.id, text="Select an option from the menu!",
     reply_markup = ReplyKeyboardMarkup(buttons))
 
