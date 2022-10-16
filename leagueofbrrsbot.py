@@ -66,7 +66,7 @@ def rispondi(update, context):
     elif randomChampImgUrl in update.message.text:
         update.message.reply_text(f"https://leagueoflegends.fandom.com/wiki/League_of_Legends_Wiki?file={random.choice(campioni)}Banner.png")
     elif searchAChampion in update.message.text:
-        update.message.reply_text("https://leagueoflegends.fandom.com/wiki/{random.choice(campioni)}/LoL")
+        update.message.reply_text(f"https://leagueoflegends.fandom.com/wiki/{random.choice(campioni)}/LoL")
     else: 
         risposta = choice(noncapisco)
         update.message.reply_text(risposta)
