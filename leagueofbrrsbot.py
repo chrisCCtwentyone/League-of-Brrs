@@ -11,8 +11,8 @@ import random
 
 
 """     TOKEN       """
-#Token identificativo del mio bot "League of Brr's" con tag "leagueofbrrsbot"
-TOKEN = "5562164106:AAE2cjpILKLGVnR7HLtshnMk5o2GOZCAkTg"
+#Token identificativo del bot, quello inserito è un esempio non valido, usa quello generato da FatherBot
+TOKEN = "1234567890"
 
 
 """     VARIABILI   """
